@@ -34,17 +34,15 @@ parsePasswords =
   fmap (fromJust . parseMaybe passwordParser) . lines
 
 partOne :: String -> Int
-partOne input = length $ filter isValid passwords
+partOne = length . filter isValid . parsePasswords
   where
-    passwords = parsePasswords input
     isValid (Password (PasswordPolicy min max character) password) =
       let count = length $ filter (== character) password
        in count >= min && count <= max
 
 partTwo :: String -> Int
-partTwo input = length $ filter isValid passwords
+partTwo = length . filter isValid . parsePasswords
   where
-    passwords = parsePasswords input
     isValid (Password (PasswordPolicy posA posB character) password)
       | password !! (posA - 1) == character && password !! (posB - 1) /= character = True
       | password !! (posA - 1) /= character && password !! (posB - 1) == character = True
