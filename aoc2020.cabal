@@ -16,7 +16,8 @@ library
                        Solve.Day05,
                        Solve.Day06,
                        Solve.Day07,
-                       Solve.Day08
+                       Solve.Day08,
+                       Solve.Day09
   -- other-modules:
   -- other-extensions:
   build-depends:       base ^>=4.13.0.0,
